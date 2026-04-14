@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "wrangler dev",
+    "predeploy": "git add -A && (git diff --staged --quiet || git commit -m 'deploy') && git push",
     "deploy": "wrangler deploy",
     "tail": "wrangler tail"
   },
