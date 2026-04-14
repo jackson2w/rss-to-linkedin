@@ -14,7 +14,9 @@
       "Bash(git commit:*)",
       "Bash(git branch:*)",
       "Bash(gh repo:*)",
-      "Bash(npm run:*)"
+      "Bash(npm run:*)",
+      "Skill(claude-md-management:revise-claude-md)",
+      "Skill(claude-md-management:revise-claude-md:*)"
     ]
   }
 }
