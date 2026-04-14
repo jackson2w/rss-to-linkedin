@@ -1,0 +1,19 @@
+name = "rss-to-linkedin"
+main = "src/index.js"
+compatibility_date = "2025-04-01"
+workers_dev = true
+preview_urls = false
+
+# 9am ET = 14:00 UTC. Adjust if you're in a different timezone.
+[triggers]
+crons = ["0 14 * * *"]
+
+# Switch between personal profile (v1 test) and company page (v2 production):
+#   Personal:  urn:li:person:YOUR_PERSON_ID   (requires w_member_social scope)
+#   Company:   urn:li:organization:107821626  (requires w_organization_social scope)
+[vars]
+LINKEDIN_AUTHOR_URN = "urn:li:person:p0mkw138Rs"
+
+[[kv_namespaces]]
+binding = "RSS_STATE"
+id = "25d862ed73644266943c2d2cff856498"

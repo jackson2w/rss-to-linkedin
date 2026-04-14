@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:williejackson.com)",
+      "WebFetch(domain:www.linkedin.com)",
+      "mcp__e0d0da69-6c3b-482b-991f-dab52fb38a51__accounts_list",
+      "mcp__e0d0da69-6c3b-482b-991f-dab52fb38a51__set_active_account",
+      "mcp__e0d0da69-6c3b-482b-991f-dab52fb38a51__kv_namespace_create",
+      "Bash(npm audit:*)",
+      "Bash(npx wrangler:*)",
+      "Bash(gh auth:*)",
+      "Bash(git init:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
+    ]
+  }
+}
