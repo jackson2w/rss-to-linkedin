@@ -105,10 +105,15 @@ function formatPost(item) {
 
   const footer = linksSection + boilerplate;
 
-  // Truncate body if needed to stay within LinkedIn's 3000-char limit
-  const maxBodyLen = LINKEDIN_CHAR_LIMIT - header.length - footer.length - 5;
-  const body =
-    bodyText.length > maxBodyLen ? bodyText.slice(0, maxBodyLen) + '…' : bodyText;
+  // Truncate body if needed to stay within LinkedIn's 3000-char limit.
+  // Cut at the last paragraph break before the limit so it doesn't end mid-sentence.
+  const truncationNote = '\n\n(Continued at link below)';
+  const maxBodyLen = LINKEDIN_CHAR_LIMIT - header.length - footer.length - truncationNote.length;
+  let body = bodyText;
+  if (bodyText.length > maxBodyLen) {
+    const cut = bodyText.lastIndexOf('\n\n', maxBodyLen);
+    body = (cut > 0 ? bodyText.slice(0, cut) : bodyText.slice(0, maxBodyLen)) + truncationNote;
+  }
 
   return header + body + footer;
 }
