@@ -103,16 +103,23 @@ function formatPost(item) {
 
   const boilerplate = `\n\nOriginally published here: ${item.link}`;
 
-  const footer = linksSection + boilerplate;
-
   // Truncate body if needed to stay within LinkedIn's 3000-char limit.
   // Cut at the last paragraph break before the limit so it doesn't end mid-sentence.
-  const truncationNote = '\n\n(Continued at link below)';
-  const maxBodyLen = LINKEDIN_CHAR_LIMIT - header.length - footer.length - truncationNote.length;
-  let body = bodyText;
-  if (bodyText.length > maxBodyLen) {
-    const cut = bodyText.lastIndexOf('\n\n', maxBodyLen);
-    body = (cut > 0 ? bodyText.slice(0, cut) : bodyText.slice(0, maxBodyLen)) + truncationNote;
+  // When truncated, drop the boilerplate — the article link serves the same purpose.
+  const truncationNote = '\n\n(Continued at link below)\n\n› ' + item.link;
+  const footerFull = linksSection + boilerplate;
+  const footerTruncated = linksSection + '\n\n' + truncationNote;
+
+  const maxBodyLenFull = LINKEDIN_CHAR_LIMIT - header.length - footerFull.length;
+  let body, footer;
+  if (bodyText.length > maxBodyLenFull) {
+    const maxBodyLenTruncated = LINKEDIN_CHAR_LIMIT - header.length - footerTruncated.length;
+    const cut = bodyText.lastIndexOf('\n\n', maxBodyLenTruncated);
+    body = (cut > 0 ? bodyText.slice(0, cut) : bodyText.slice(0, maxBodyLenTruncated));
+    footer = footerTruncated;
+  } else {
+    body = bodyText;
+    footer = footerFull;
   }
 
   return header + body + footer;
