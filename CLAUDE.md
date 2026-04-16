@@ -1,7 +1,7 @@
 # rss-to-linkedin
 
 ## Project
-Cloudflare Worker that cross-posts new blog articles from williejackson.com/writing/feed/ to LinkedIn.
+Cloudflare Worker that cross-posts new blog articles from williejackson.com/feed/ to LinkedIn.
 
 ## Key identifiers
 - LinkedIn person URN: `urn:li:person:p0mkw138Rs` (personal profile, active)

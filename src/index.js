@@ -1,4 +1,4 @@
-const RSS_URL = 'https://williejackson.com/writing/feed/';
+const RSS_URL = 'https://williejackson.com/feed/';
 const LINKEDIN_API_URL = 'https://api.linkedin.com/v2/ugcPosts';
 const KV_KEY = 'last_posted_guid';
 const LINKEDIN_CHAR_LIMIT = 3000;
