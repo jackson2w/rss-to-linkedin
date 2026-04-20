@@ -16,7 +16,8 @@
       "Bash(gh repo:*)",
       "Bash(npm run:*)",
       "Skill(claude-md-management:revise-claude-md)",
-      "Skill(claude-md-management:revise-claude-md:*)"
+      "Skill(claude-md-management:revise-claude-md:*)",
+      "Bash(python3 ~/.claude/plugins/cache/jackson2w-skills/krisp-meeting/1.0.0/skills/krisp-meeting/scripts/get_token.py)"
     ]
   }
 }
