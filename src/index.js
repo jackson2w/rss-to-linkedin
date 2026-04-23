@@ -135,6 +135,8 @@ function stripHtml(html) {
     .replace(/<br\s*\/?>/gi, '\n')
     // List items
     .replace(/<li[^>]*>/gi, '\n• ')
+    // Replace <img> tags with their alt text — preserves emojis WordPress converts to <img class="wp-smiley">
+    .replace(/<img[^>]*alt=["']([^"']*)["'][^>]*\/?>/gi, '$1')
     // Strip all remaining inline tags with NO replacement (avoids "C larity" drop-cap gap and "word ." spacing)
     .replace(/<[^>]+>/g, '')
     // Decode HTML entities
